@@ -4,10 +4,19 @@ import { Card, CardContent, CardMedia, Typography, Button, Grid } from '@mui/mat
 export default function ProductCard({ product }) {
     return (
         <Grid item xs={12} sm={6} md={4}>
-            <Card>
+            <Card
+                sx={{
+                    borderRadius: '16px',
+                    boxShadow: 3,
+                    transition: 'transform 0.2s',
+                    '&:hover': {
+                        transform: 'scale(1.05)',
+                    },
+                }}
+            >
                 <CardMedia
                     component="img"
-                    height="140"
+                    height="200"
                     image={product.imageUrl}
                     alt={product.name}
                 />
