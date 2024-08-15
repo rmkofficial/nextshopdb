@@ -1,7 +1,14 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material';
+import { useRouter } from 'next/router';
+import { Card, CardContent, CardMedia, Typography, Grid, Button } from '@mui/material';
 
 export default function ProductCard({ product }) {
+    const router = useRouter();
+
+    const handleCardClick = () => {
+        router.push(`/products/${product.id}`);
+    };
+
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card
@@ -11,8 +18,10 @@ export default function ProductCard({ product }) {
                     transition: 'transform 0.2s',
                     '&:hover': {
                         transform: 'scale(1.05)',
+                        cursor: 'pointer',
                     },
                 }}
+                onClick={handleCardClick}  
             >
                 <CardMedia
                     component="img"
